@@ -33,7 +33,9 @@ jobs:
       run: |
         minikube start # since it is on gitub hosted runner, minikube is pre installed.If running on self hosted runner, then need to install minkube using actions. 
         kubectl config use-context minikube #to ensure that subsequent kubectl commands interact with the Minikube cluster.
-      
+
+    - name: Deploy to Kubernetes
+      run: |
         kubectl apply -f deployment.yaml
         kubectl apply -f service.yaml
         
